@@ -50,3 +50,22 @@ const person = new Person("kim");
 person.hi(); //kim
 person.hi_timeout(); //undefined
 person.hi_timeout_arrow(); // kim
+
+const button = document.querySelector("button");
+button?.addEventListener("click", () => handleToggle);
+
+const input = document.querySelector("input");
+input?.addEventListener("click", handleToggle);
+
+function handleToggle(this: HTMLButtonElement) {
+  this.classList.toggle("clicked");
+}
+
+type ToggleFn = typeof handleToggle;
+// (this: HTMLElement) => void
+
+type WithoutThis = OmitThisParameter<ToggleFn>;
+// () => void
+
+type ToggleFnThis = ThisParameterType<ToggleFn>;
+// HTMLElement
