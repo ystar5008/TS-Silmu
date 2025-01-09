@@ -27,4 +27,12 @@ function printPersons(coll: Collection2) {
   console.log(coll);
 }
 
+printPersons(new Person5("kim"));
 printPersons([{ name: "kim" }]);
+
+function checkPerson(person: Person5) {
+  return person instanceof Person5;
+}
+
+checkPerson(new Person5("kim")); // true
+checkPerson({ name: "kim" }); // false
