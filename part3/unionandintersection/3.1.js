@@ -13,3 +13,14 @@ var doll = {
     material: "plush",
 };
 printToy(doll);
+function takeNumberOrString(value) { }
+takeNumberOrString(2);
+takeNumberOrString("2");
+var one = 1;
+var one1 = 2; // 다른 값은 들어갈 수 없음
+function checkDoll(doll) {
+    if (doll.material === "plush")
+        return doll;
+    else
+        return doll;
+}
