@@ -18,9 +18,17 @@ takeNumberOrString(2);
 takeNumberOrString("2");
 var one = 1;
 var one1 = 2; // 다른 값은 들어갈 수 없음
+var dollModel = {
+    name: "hi",
+    price: 222,
+    quantity: 5,
+    minimumAge: 2,
+    material: "",
+};
 function checkDoll(doll) {
     if (doll.material === "plush")
         return doll;
     else
         return doll;
 }
+console.log(checkDoll(dollModel));

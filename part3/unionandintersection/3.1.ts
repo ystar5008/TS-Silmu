@@ -65,7 +65,7 @@ const dollModel = {
   price: 222,
   quantity: 5,
   minimumAge: 2,
-  material: "plush",
+  material: "plush" as "plush" | "plastic",
 };
 
 function checkDoll(doll: Doll): Doll {
