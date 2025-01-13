@@ -110,5 +110,8 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
-  "include": ["."]
+  "include": ["."],
+  "typeAcquisition": {
+    "enable": true
+  }
 }

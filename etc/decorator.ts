@@ -109,3 +109,5 @@ class Animal {
     console.log("Animal created");
   }
 }
+
+export { LoggerWithPrefix };
