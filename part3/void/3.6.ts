@@ -24,3 +24,22 @@ function middleware(nextCallback) {
     return void nextCallback;
   }
 }
+
+//void는 undefined의 하위 형식
+function iHaveNoReturnValue(i) {
+  console.log(i);
+}
+
+let check = iHaveNoReturnValue(2); // undefined
+
+type Fn = typeof iHaveNoReturnValue;
+//type Fn = (i:any) => void
+
+function iTakeNoParameters(x: void) {
+  console.log(x);
+}
+
+// 매개변수나 그밖의 다른 모든 선언에도 void를 형식으로 사용할 숭 ㅣㅆ음 => 오직 undefined만 유효한 값으로 받음
+iTakeNoParameters();
+iTakeNoParameters(undefined);
+iTakeNoParameters(void 2);
