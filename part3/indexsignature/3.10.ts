@@ -18,18 +18,9 @@ const timings = {
   },
 };
 
-interface Timing {
-  ttfb: number;
-  fcp: number;
-  si: number;
-  lcp: number;
-  tti: number;
-  tbt: number;
-}
-
 function findLowestTiming(
-  collection: { [domain: string]: Timing },
-  metric: keyof Timing
+  collection: MetricCollection,
+  metric: keyof Metrics
 ): string {
   let result = {
     domain: "",
@@ -44,3 +35,26 @@ function findLowestTiming(
   }
   return result.domain;
 }
+
+type Metrics = {
+  // 최초 바이트까지 걸린 시간
+  ttfb: number;
+  // 최초 만족스러운 페인트
+  fcp: number;
+  //속도 인덱스
+  si: number;
+  // 가장 큰 페인트
+  lcp: number;
+  // 상호 동작 시간
+  tti: number;
+  // 총 블록 시간
+  tbt: number;
+};
+
+type MetricCollection = {
+  [domain: string]?: Metrics ;
+};
+
+const emptySet: MetricCollection = {};
+let timing = (emptySet["typescript-cookbook.com"]?.fcp * 2 ?? 0) * 2;
+
