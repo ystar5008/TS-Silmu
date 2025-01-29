@@ -18,6 +18,7 @@ function isLanguageAvailable(
 ): lang is keyof Languages {
   // lang이 Languages 타입의 키인지 여부를 반환
   // de, en, pt, es, fr, ja 중 하나인지 확인
+  console.log(lang in collection);
   return lang in collection; // lang이 collection 객체의 키 중 하나인지 확인
 }
 
@@ -38,3 +39,45 @@ const subtitles: Languages = {
 
 const selectedLanguage = loadLanguage(subtitles, "de");
 console.log(selectedLanguage);
+
+type AllowedElemnets = {
+  video: HTMLVideoElement;
+  audio: HTMLAudioElement;
+  canvas: HTMLCanvasElement;
+};
+
+function isElementAllowd(
+  collection: AllowedElemnets,
+  elem: string
+): elem is keyof AllowedElemnets {
+  return elem in collection;
+}
+
+function selectElement(collection: AllowedElemnets, elem: string) {
+  if (isElementAllowd(collection, elem)) {
+    return collection[elem];
+  }
+}
+
+// const selectElement2 = selectElement(
+//   {
+//     video: document.createElement("video"),
+//     audio: document.createElement("audio"),
+//     canvas: document.createElement("canvas"),
+//   },
+//   "video"
+// );
+
+function isAvailable<Obj>(
+  obj: Obj,
+  key: string | number | symbol
+): key is keyof Obj {
+  return key in obj;
+}
+
+const obj4 = {
+  a: 1,
+  b: 2,
+  c: 3,
+};
+isAvailable(obj4, "a");
