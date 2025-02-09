@@ -29,3 +29,5 @@ function reset<F extends Filter>(filter: F): F {
 
 const filter: CombinatorialFiler = { rules: [], combination: "or" };
 const resetFilter: Filter = reset(filter); // resetFilter는 Filter
+
+const;
